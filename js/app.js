@@ -83,7 +83,8 @@ var win = 0;
 var lose = 0;
 var Player = function(y, x) {
     this.sprite ='images/char-boy.png';
-     if (x == 1) {
+    //I know the following code should probably be in player.update, but it doesn't really run very well there.
+    if (x == 1) {
         this.x = 0;
     }
     if (x == 2) {
@@ -119,33 +120,13 @@ Player.prototype.render = function(x, y) {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.update = function(dt, y, x) {
-    if (x == 1) {
-        this.x = 0;
-    }
-    if (x == 2) {
-        this.x = 100;
-    }
-    
-    if (x == 3) {
-        this.x = 200;
-    }
-    if (x == 4) {
-        this.x = 300;
-    }
-    if (x == 5) {
-        this.x = 400;
-    }
-    if (y == 1) {
-        this.y = 400;
-    }
-    if (y == 2) {
-        this.y = 300;
-    }
-        ctx.font = "30px Arial";
-        ctx.fillStyle = "white";
-        ctx.textAligh = "right";
-        ctx.fillText(win, 50, 50);
+Player.prototype.update = function(win) {
+    this.x = this.x;
+    this.y = this.y;
+    ctx.font = "30px Arial";
+    ctx.fillStyle = "white";
+    ctx.textAligh = "right";
+    ctx.fillText(win, 50, 50);
 };
 
 Player.prototype.handleInput = function(allowedKeys) {
@@ -211,7 +192,7 @@ Player.prototype.handleInput = function(allowedKeys) {
         this.y = 50;
         break;
         case 6:
-        win = win +1;
+        win = win + 1;
         posY = 2;
         posX = 3;
         this.x = 200;

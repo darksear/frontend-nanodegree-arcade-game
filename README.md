@@ -5,6 +5,9 @@ Students should use this [rubric](https://www.udacity.com/course/viewer/#!/c-nd0
 
 For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
 
+#_To Play_
+Open index.html in a browser.
+
 #_Directions_
 1. Use the cursor keys to move the player.
 2. Avoid the lady bugs.
