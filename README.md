@@ -12,3 +12,7 @@ Open index.html in a browser.
 1. Use the cursor keys to move the player.
 2. Avoid the lady bugs.
 3. Make it to the water.
+
+#_Change Log_
+Update 1: Cleaned up some code;
+Update 2: Got counters working and clarified some coding;

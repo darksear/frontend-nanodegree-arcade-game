@@ -1,3 +1,4 @@
+'use strict';
 function randSpeed() {
     var speed = [100, 100, 100, 150, 150, 200, 300];
     var i = parseInt(Math.random()*(speed.length-1));
@@ -18,18 +19,17 @@ var Enemy = function(x, y) {
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt, enemy) {
+Enemy.prototype.update = function(dt, enemy) {//<<<<<<enemy in this is not the object that will be created once it starts, but the enemy variable used in engine.js on line 94
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += this.speed * dt;
     if (poseY[enemy] == posY) {
-        if(poseX[enemy] == posX) {
+        if(poseX[enemy] == posX) { 
             lose = lose + 1;
             posX = 3;
             posY = 2;
-            player.x = 200;
-            player.y = 300;
+            player.reset();
         }
     }
     // delete bug from array when it goes off the screen to the right
@@ -109,26 +109,38 @@ var Player = function(y, x) {
 };
 
 // Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function(x, y) {
+Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-Player.prototype.render = function(x, y) {
+Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.update = function(win) {
+Player.prototype.update = function() {
     this.x = this.x;
     this.y = this.y;
     ctx.font = "30px Arial";
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "gold";
     ctx.textAligh = "right";
-    ctx.fillText(win, 50, 50);
+    ctx.fillText(win, 50, 40);
+    ctx.font = "30px Arial";
+    ctx.fillStyle = "red";
+    ctx.fillText(lose, 80, 40);
 };
-
+Player.prototype.reset = function() {
+    this.x = 200;
+    this.y = 300;
+        var erase= "▄";
+        ctx.font = "100px Arial bold";
+        ctx.fillStyle = "white";
+        ctx.textAligh = "right";
+        ctx.fillText(erase, 50, 40);
+        ctx.fillText(erase, 80, 40);
+};
 Player.prototype.handleInput = function(allowedKeys) {
     var movX = 0;
     var movY = 0;
@@ -192,6 +204,7 @@ Player.prototype.handleInput = function(allowedKeys) {
         this.y = 50;
         break;
         case 6:
+        player.reset();
         win = win + 1;
         posY = 2;
         posX = 3;
