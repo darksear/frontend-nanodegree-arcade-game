@@ -20,7 +20,7 @@ var Enemy = function(x, y) {
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt, enemy1) {//<<<<<<enemy in this is not the object that will be created once it starts, but the enemy variable used in engine.js on line 94
+Enemy.prototype.update = function(dt, enemy1) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
