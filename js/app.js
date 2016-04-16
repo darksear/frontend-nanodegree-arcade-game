@@ -5,6 +5,7 @@ function randSpeed() {
     return speed[i];
 }
 // Enemies our player must avoid
+var enemy1 = 0;
 var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -19,13 +20,13 @@ var Enemy = function(x, y) {
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt, enemy) {//<<<<<<enemy in this is not the object that will be created once it starts, but the enemy variable used in engine.js on line 94
+Enemy.prototype.update = function(dt, enemy1) {//<<<<<<enemy in this is not the object that will be created once it starts, but the enemy variable used in engine.js on line 94
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += this.speed * dt;
-    if (poseY[enemy] == posY) {
-        if(poseX[enemy] == posX) { 
+    if (poseY[enemy1] == posY) {
+        if(poseX[enemy1] == posX) { 
             lose = lose + 1;
             posX = 3;
             posY = 2;
@@ -34,12 +35,12 @@ Enemy.prototype.update = function(dt, enemy) {//<<<<<<enemy in this is not the o
     }
     // delete bug from array when it goes off the screen to the right
     if (this.x > 600) {
-        delete allEnemies[enemy];
+        delete allEnemies[enemy1];
     }
 };
 var poseX = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var poseY = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-Enemy.prototype.position = function(enemy) {
+Enemy.prototype.position = function(enemy1) {
     /*This switch statement and the if statements down below will 
     log each enemy position on a grid that will be compared to the 
     players grid. Whenever this.x doesn't meet a certain range poseX[]
@@ -47,36 +48,36 @@ Enemy.prototype.position = function(enemy) {
     different enemy modules*/
     switch (this.y) {
         case 60:
-        poseY[enemy] = 5;
+        poseY[enemy1] = 5;
         break;
         case 140:
-        poseY[enemy] = 4;
+        poseY[enemy1] = 4;
         break;
         case 230:
-        poseY[enemy] = 3;
+        poseY[enemy1] = 3;
         break;
     }
 
     if (this.x < 0) {
-        poseX[enemy] = 0;
+        poseX[enemy1] = 0;
     }
     else if (this.x > 10 && this.x < 80) {
-        poseX[enemy] = 1;
+        poseX[enemy1] = 1;
     }
     else if (this.x > 50 && this.x < 160) {
-        poseX[enemy] = 2;
+        poseX[enemy1] = 2;
     }
     else if (this.x > 150 && this.x < 260) {
-        poseX[enemy] = 3;
+        poseX[enemy1] = 3;
     }
     else if (this.x > 250 && this.x < 360) {
-        poseX[enemy] = 4;
+        poseX[enemy1] = 4;
     }
     else if (this.x > 350 && this.x < 460) {
-        poseX[enemy] = 5;
+        poseX[enemy1] = 5;
     }
     else {
-        poseX[enemy] = 0;
+        poseX[enemy1] = 0;
     }
 };
 var win = 0;

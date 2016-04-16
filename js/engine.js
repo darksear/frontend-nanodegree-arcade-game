@@ -91,7 +91,9 @@ var Engine = (function(global) {
      * render methods.
      */
     function updateEntities(dt) {
+        enemy1 = 0;
         allEnemies.forEach(function(enemy) {
+            enemy1 = enemy1 + 1;
             enemy.update(dt, enemy);
             enemy.position(enemy);
         });
