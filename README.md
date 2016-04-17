@@ -17,3 +17,4 @@ Open index.html in a browser.
 Update 1: Cleaned up some code
 Update 2: Got counters working and clarified some coding
 Update 3: Added a counter in engine.js to avoid encapsulation
+Update 4: Changed randspeed function into prototype of Enemy to meet best practice.
