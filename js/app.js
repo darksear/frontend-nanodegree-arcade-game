@@ -1,9 +1,4 @@
 'use strict';
-function randSpeed() {
-    var speed = [100, 100, 100, 150, 150, 200, 300];
-    var i = parseInt(Math.random()*(speed.length-1));
-    return speed[i];
-}
 // Enemies our player must avoid
 var enemy1 = 0;
 var Enemy = function(x, y) {
@@ -15,9 +10,14 @@ var Enemy = function(x, y) {
     this.x = x;
     this.y = y;
     this.sprite = 'images/enemy-bug.png';
-    this.speed = randSpeed();
+    this.speed = this.randSpeed();
 };
 
+Enemy.prototype.randSpeed = function() {
+    var speed = [100, 100, 100, 150, 150, 200, 300];
+    var i = parseInt(Math.random()*(speed.length-1));
+    return speed[i];
+}
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt, enemy1) {
